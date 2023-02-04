@@ -10,9 +10,10 @@ ${base_url}=    http://localhost:8080/swagger-ui.html#/calculator-controller
 *** Test Cases ***
 Post_one_record
     create session  mysession   ${base_url}
-    ${body}=    create dictionary   birthday=07041989   gender=female   name=meenu   natid=g5424555    salary=7000    tax=400
+    ${body}=     create dictionary   birthday=07041989   gender=female   name=meenu   natid=g5424555    salary=7000    tax=400,
+    #birthday=07041989   gender=female   name=meenu1   natid=g5424555    salary=7000    tax=400
     ${header}=  create dictionary   Content-Type=application/json
-    ${response}=    post on session    mysession   /insertPersonUsingPOST_1 data=${body} headers=${header}
+    ${response}=    post on session    mysession   /insertPersonUsingPOST data=${body} headers=${header}
 
     log to console  ${response.status_code}
     log to console  ${response.content}
