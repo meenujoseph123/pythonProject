@@ -2,6 +2,7 @@
 *** Settings ***
 Library  RequestsLibrary
 Library  Collections
+Library  SeleniumLibraries
 
 *** Variables ***
 ${base_url}=    http://localhost:8080/swagger-ui.html#/calculator-controller

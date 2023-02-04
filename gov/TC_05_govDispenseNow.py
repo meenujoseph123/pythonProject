@@ -53,7 +53,7 @@ for itm in range(0, len(btn_list)):
     print(color)
 
     if color == "rgba(0, 123, 255, 1)":# do any action
-    print("Button with Primary color detected")
+        print("Button with Primary color detected")
 
 
 # verify a page with success message displayed after clicked on “Dispense Now” button........................................................
