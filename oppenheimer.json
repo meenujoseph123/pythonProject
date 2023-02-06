@@ -1,0 +1,21 @@
+[
+  {
+    "birthday": "07051989",
+    "gender": "female",
+    "name": "rini",
+    "natid": "g5424332",
+    "salary": "3000",
+    "tax": "300"
+  },
+  {
+    "birthday":"07041989",   
+    "gender":"female",   
+    "name":"meenu",   
+    "natid":"g5424555",    
+    "salary":"3000",    
+    "tax":"400"
+ }
+]
+
+
+    
