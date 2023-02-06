@@ -22,8 +22,6 @@ TC_AC1:
     ${res_body}=    convert to string   ${response.content}
     should contain  ${res_body}  OPERATION_SUCCESS
     should contain  ${res_body}     Operation completed successfully
-TC_AC2:
-    ${json_obj}=    C:/Windows/jsondata.json
-    ${natid}=   ${json_obj} $.natid
-    log to console  ${natid[0]}
+
+
 
