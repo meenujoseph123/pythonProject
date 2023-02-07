@@ -1,8 +1,9 @@
 *** Settings ***
 Library     ExtendedSelenium2Library
-Library     TC04_AC05_taxCalculation0-50
+Library     bookkeeper.py
 
 
 *** Test Cases ***
-Test
-    calculateTaxRelief
+Please enter Age[enter]Gender[Enter]Salary[Enter]TaxPaid[Enter]|TaxRelief amount will be calculated.
+    ${taxrelief}=   calculateTaxReliefForLessThanFifty
+    log to console  ${taxrelief}

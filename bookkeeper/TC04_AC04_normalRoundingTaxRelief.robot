@@ -1,8 +1,9 @@
 *** Settings ***
 Library     ExtendedSelenium2Library
-Library     TC04_AC04_normalRoundingTaxRelief
+Library     bookkeeper.py
 
 
 *** Test Cases ***
-Test
-    calculateTaxRelief
+Please enter Age[enter]Gender[Enter]Salary[Enter]TaxPaid[Enter]|TaxRelief amount will be calculated.
+    ${taxrelief}=   calculateTaxReliefAfterNormalRounding
+    log to console  ${taxrelief}

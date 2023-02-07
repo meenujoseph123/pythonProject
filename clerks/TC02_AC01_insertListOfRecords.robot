@@ -1,6 +1,6 @@
 *** Settings ***
 Library     ExtendedSelenium2Library
-Library     TC02_AC01_insertListOfRecords
+Library     clerks.py
 
 
 *** Test Cases ***

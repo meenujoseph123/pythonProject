@@ -4,14 +4,14 @@ Library  RequestsLibrary
 Library  Collections
 
 *** Variables ***
-${base_url}=    http://localhost:8080/swagger-ui.html#/calculator-controller
+${base_url}=    http://localhost:8080/swagger-ui.html#/calculator-controller/insertPersonUsingPOST_1
 
 *** Test Cases ***
 Post_one_record
-    create session  mysession   ${base_url}
+    create session  mysession   http://localhost:8080/swagger-ui.html#/calculator-controller
     ${body}=    create dictionary   birthday=07041989   gender=female   name=meenu   natid=g5424555    salary=7000    tax=400
     ${header}=  create dictionary   Content-Type=application/json
-    ${response}=    post on session    mysession   /insertPersonUsingPOST_1 data=${body} headers=${header}
+    ${response}=    POST On Session  mysession   ${base_url}    data=${body}    headers=${header}
 
     log to console  ${response.status_code}
     log to console  ${response.content}

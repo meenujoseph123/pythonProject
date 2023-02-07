@@ -1,8 +1,11 @@
 *** Settings ***
 Library     ExtendedSelenium2Library
-Library     TC03_AC03_uploadCSV
+Library     clerks.py
 
 
 *** Test Cases ***
 Test
-    uploadCSV
+    #Method 1
+    uploadCSVfromUI
+    #Method 2
+    uploadLargeFileForInsertionToDatabaseUsingAPI
