@@ -13,7 +13,10 @@ def insertRecords():
     request_json = json.loads(json_input)
     response = requests.post(url, request_json)
     print(response.content)
-    assert response.status_code == 201
+    if response.status_code == 201:
+        return 1
+    else:
+        return 0
 
 #This method is for uploading using Upload button in the UI.
 def uploadCSVfromUI():

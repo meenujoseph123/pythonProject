@@ -23,17 +23,21 @@ def loadApplication():
 def natIdMasked():
     try:
         self.selenium_lib = BuiltIn().get_library_instance('ExtendedSelenium2Library')
-        driver = loadApplication()
-        l = driver.find_elements_by_xpath("//*[@class= 'spTable']/tbody/tr/td[0]")
+        driver1 = loadApplication()
+        l = driver1.find_elements_by_xpath("//*[@class= 'spTable']/tbody/tr/td[0]")
         # to traverse through the list of cell data of column 0(natid)
         i = 0
         for i in l:
             print("natid-" + i + ":" + i.text)
-            natId = i.text
+            natId = i.text                     #"G3333$$$$"
             # find the index where $ starts from
             print("The '$' symbol is displaying from index " + natId.index("$$$") + 1)
+            if natId.index("$") == 4:
+                return 1
+            else:
+                return 0
             # to close the browser
-        driver.close()
+        driver1.close()
     except:
         print("Table is not available in the UI")
 
