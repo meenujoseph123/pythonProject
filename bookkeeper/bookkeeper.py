@@ -103,7 +103,7 @@ def calculateTaxReliefAfterNormalRounding():
 
 
 def calculateTaxReliefForLessThanFifty():
-    taxR= 0
+    taxR = 0
     tax = calculateTaxRelief()
     # normal rounding is applied to tax we calculated
     rounded = round(tax)
@@ -121,12 +121,12 @@ def calculateTaxReliefForLessThanFifty():
 def calculateTaxReliefAfterRemovingDecimal():
     tax = calculateTaxRelief()
     # value with more than 2 decimal point truncated at second decimal point.
-    format(tax, '.2f')
-    print(f"Total tax relief applicable is ₹{tax}")
+    taxFormat = format(tax, '.2f')
+    print(f"Total tax relief applicable is ₹{taxFormat}")
     # normal rounding is applied to tax we calculated
-    rounded = round(tax)
-    print(f"Total tax relief applicable after normal rounding is ${rounded}")
-    return rounded
+    roundedFinally = round(taxFormat)
+    print(f"Total tax relief applicable after normal rounding is ${roundedFinally}")
+    return roundedFinally
 
 
 if __name__ == '__main__':
