@@ -9,6 +9,8 @@ from robot.libraries.BuiltIn import BuiltIn
 from webdriver_manager import driver
 
 from datetime import date
+
+
 def loadApplication():
     driver = webdriver.Chrome(options=Chrome, executable_path="C:\Windows\chromedriver.exe")
     time.sleep(25)
@@ -63,10 +65,11 @@ def calculate_income_tax(age, gender, salary, taxPaid):
     elif gender == "F" and age <= 76:
         return calculate(0.05, 500, salary, taxPaid)
 
+
 # we can use this below function to calculate age from birthday in the table.
 def age(birthdate):
     today = date.today()
-    l = driver.find_elements_by_xpath("//*[@class= 'spTable']/tbody/tr/td[3]") #birthday column cell
+    l = driver.find_elements_by_xpath("//*[@class= 'spTable']/tbody/tr/td[3]")  # birthday column cell
     # to traverse through the list of cell data of column 0(natid)
     i = 0
     for i in l:
@@ -96,36 +99,34 @@ def calculateTaxReliefAfterNormalRounding():
     # normal rounding is applied to tax we calculated
     rounded = round(tax)
     print(f"Total tax relief applicable after normal rounding is ${rounded}")
+    return rounded
 
 
 def calculateTaxReliefForLessThanFifty():
+    taxR= 0
     tax = calculateTaxRelief()
     # normal rounding is applied to tax we calculated
     rounded = round(tax)
     print(f"Total tax relief applicable after normal rounding is ${rounded}")
     # condition check
     if 0.00 <= rounded <= 50.00:
-        print(f"Total tax relief applicable is $50.00")
+        taxR = 50.00
+        print(f"Total tax relief applicable is $" + str(taxR))
+        return taxR
     elif 0.00 > rounded > 50.00:
         print(f"Total tax relief applicable after rounded is ${rounded}")
+        return rounded
 
 
 def calculateTaxReliefAfterRemovingDecimal():
     tax = calculateTaxRelief()
-    # normal rounding is applied to tax we calculated
-    rounded = round(tax)
-    print(f"Total tax relief applicable after normal rounding is ${rounded}")
-    # condition check
-    if 0.00 <= rounded <= 50.00:
-        print(f"Total tax relief applicable is $50.00")
-    elif 0.00 > rounded > 50.00:
-        print(f"Total tax relief applicable after rounded is ${rounded}")
     # value with more than 2 decimal point truncated at second decimal point.
     format(tax, '.2f')
     print(f"Total tax relief applicable is ₹{tax}")
     # normal rounding is applied to tax we calculated
     rounded = round(tax)
     print(f"Total tax relief applicable after normal rounding is ${rounded}")
+    return rounded
 
 
 if __name__ == '__main__':
